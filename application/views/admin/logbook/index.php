@@ -18,13 +18,13 @@
 
     <div class="container">
 
-        <table id="table" data-show-columns="true" data-height="460"></table>
+        <table id="tabel" data-show-columns="true" data-height="460"></table>
 
     </div>
 
 </div>
 
-
+<script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
 <script type="text/javascript">
     // $(document).ready(function() {
@@ -32,7 +32,7 @@
     // });
 
 
-    var $table = $('#table')
+
 
 
     var operateEvents = {
@@ -54,26 +54,32 @@
 
 
 
+    // var $table = $('#table')
+    var url;
+    $('#tabel').DataTable({
+        'url': '<?= base_url() ?>admin/Logbook/get_data',
 
-
-    $table.DataTable({
-        url: '<?= base_url() ?>/admin/logbook/get_data',
         // title: 'Tabel Logbook',
-        search: true,
-        pagination: true,
-        buttonsClass: 'primary',
-        showFooter: true,
-        pagination: true,
-        minimumCountColumns: 2,
-        columns: [{
-            field: 'tanggal',
-            title: 'tanggal',
-            sortable: true,
+        ' search': true,
+        'pagination': true,
+        'buttonsClass': 'primary',
+        'rownumbers': true,
+        'showFooter': true,
+        'pagination': true,
+        'minimumCountColumns': 2,
+        'Ajax': '<?= base_url() ?>admin/Logbook/get_data',
+        "columns": [{
+            "field": 'tanggal',
+            "title": 'tanggal',
+            "sortable": true,
         }, {
-            field: 'nama_kegiatan',
-            title: 'nama_kegiatan',
-            sortable: true,
-        }, ],
-
+            "field": 'tanggal',
+            "title": 'tanggal',
+            "sortable": true,
+        }, {
+            "field": 'nama_kegiatan',
+            "title": 'nama_kegiatan',
+            "sortable": true,
+        }, ]
     });
 </script>
